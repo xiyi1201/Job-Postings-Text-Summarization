@@ -24,21 +24,46 @@ In today's dynamic job market, understanding the skills and qualifications that 
     - Key Skill sets:
     ![Key Skill sets](key_skills.png)
 
-2. [Modeling](model.ipynb)
+2. [Modeling](preprocessing-model-bart-longT5.ipynb)
 - Data Cleaning & Preprocessing:
     - Remove special characters & digits
     - Lowercase
     - Tokenization
     - Retain data-related keywords (skills)
     - Remove stop words
+    
 - Models: 
     - facebook/bart-large-cnn (served as baseline)
         - ROUGE scores in the range of 10-20%
-        - Relevancy scores - Cosine Similarity
+        - Relevancy scores - Cosine Similarity: 0.23
         - [results example](zero-shot-summaries.txt)
-    - OpenAI model
+    - [OpenAI model: gpt-3.5-turbo](model-openai.ipynb)
+        - Example Prompt：*“You are a helpful assistant. The following data are the job description in the LinkedIn. Summarize the following job description with fluent sentences with the company name, job title, how many years of experience, skills needed.”*
+        - ROUGE scores in the range of 19-25%
+        - Relevancy scores - Cosine Similarity: 0.6
+    - DistilBART
+        - ROUGE scores in the range of 20-22%
+        - Relevancy scores - Cosine Similarity: 0.6
+    - TF-IDF + T5 (t5-small)
+        - ROUGE scores in the range of 9-16%
+    - [FLAN-T5](mode-flanT5-MiniLML6.ipynb)
+        - ROUGE scores in the range of ~28%
+        - Relevancy scores - Cosine Similarity: 0.69
+    - *Other model tried but not suitable for our case: LDA, BERTSUM, LongT5, Open Pretrained Transformer*
 
-See more details in the [report]().
+- Results: 
+    **FLAN-T5 is the Best Model so far**
+    1. Instruction-Tuned for Better Understanding
+    2. Handles Long Inputs
+    3. Efficient and Versatile
+    4. Minimized Repetition Issues
+    5. Straightforward Integration
+
+- Further Improvement: 
+    - Computational Requirements
+    - Fine-Tuning Needs
+
+See more discussion and details in the [report](Job_Summarization_Text_Project.pdf).
 
 ## Contributors
 - Xiyi Lin
