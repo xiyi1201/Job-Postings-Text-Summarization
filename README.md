@@ -24,32 +24,32 @@ In today's dynamic job market, understanding the skills and qualifications that 
     - Key Skill sets:
     ![Key Skill sets](key_skills.png)
 
-2. [Modeling](preprocessing-model-bart-longT5.ipynb)
-- Data Cleaning & Preprocessing:
-    - Remove special characters & digits
-    - Lowercase
-    - Tokenization
-    - Retain data-related keywords (skills)
-    - Remove stop words
+2. Data Cleaning & Preprocessing:
+- Remove special characters & digits
+- Lowercase
+- Tokenization
+- Retain data-related keywords (skills)
+- Remove stop words
+3. [Modeling](preprocessing-model-bart-longT5.ipynb)
     
 - Models: 
-    - facebook/bart-large-cnn (served as baseline)
+    - baseline: [facebook/bart-large-cnn](models/baseline_model.ipynb)
         - ROUGE scores in the range of 10-20%
         - Relevancy scores - Cosine Similarity: 0.23
         - [results example](zero-shot-summaries.txt)
-    - [OpenAI model: gpt-3.5-turbo](model-openai.ipynb)
+    - [OpenAI model: gpt-3.5-turbo](models/model-openai.ipynb)
         - Example Prompt：*“You are a helpful assistant. The following data are the job description in the LinkedIn. Summarize the following job description with fluent sentences with the company name, job title, how many years of experience, skills needed.”*
         - ROUGE scores in the range of 19-25%
         - Relevancy scores - Cosine Similarity: 0.6
-    - DistilBART
+    - [DistilBART](models/model-LongT5-DistilBart-OPT.ipynb)
         - ROUGE scores in the range of 20-22%
         - Relevancy scores - Cosine Similarity: 0.6
-    - TF-IDF + T5 (t5-small)
+    - [TF-IDF + T5 (t5-small)](models/model-LongT5-DistilBart-OPT.ipynb)
         - ROUGE scores in the range of 9-16%
-    - [FLAN-T5](mode-flanT5-MiniLML6.ipynb)
+    - [FLAN-T5](models/mode-flanT5-MiniLML6.ipynb)
         - ROUGE scores in the range of ~28%
         - Relevancy scores - Cosine Similarity: 0.69
-    - *Other model tried but not suitable for our case: LDA, BERTSUM, LongT5, Open Pretrained Transformer*
+    - *Other models tried but not suitable for our case: LDA, BERTSUM, LongT5, Open Pretrained Transformer*
 
 - Results: 
     **FLAN-T5 is the Best Model so far**
@@ -59,9 +59,9 @@ In today's dynamic job market, understanding the skills and qualifications that 
     4. Minimized Repetition Issues
     5. Straightforward Integration
 
-- Further Improvement: 
-    - Computational Requirements
-    - Fine-Tuning Needs
+4. Further Improvement: 
+- Computational Requirements
+- Fine-Tuning Needs
 
 See more discussion and details in the [report](Job_Summarization_Text_Project.pdf).
 
